@@ -289,3 +289,33 @@ Recruiters must be able to select interviewers, query availability from Google/M
 | **2. Candidate Intake & AI-Assisted Screening** | **Very High** — Major differentiator for the product (AI matching). Direct impact on reducing time-to-hire and improving candidate quality.               | **High** — AI-assisted matching is rapidly becoming a competitive requirement; resume parsing is frequently requested by HR teams. | **High** — Requires async pipelines, resume parsing adapter, search indexing, event-driven flows, and matchScore updates.                      | - Heavy reliance on 3rd-party resume parsing tools. <br> - Potential ML pipeline delays. <br> - Search Index uptime and indexing latency are critical dependencies.                  |
 | **3. Interview Scheduling with Calendar Sync**  | **Medium–High** — Key value-add for reducing scheduling friction; strong differentiator but not required to publish or intake candidates.                 | **Medium** — Calendar sync is important but can be phased; not always required for early customers.                                | **High** — Complex due to free/busy lookups, multi-interviewer logic, OAuth, event creation, rescheduling flows.                               | - Calendar provider API rate limits/failures. <br> - OAuth dependency and token refresh logic. <br> - Multi-party scheduling complexity (candidate + multiple interviewers).         |
 
+Below is a **Markdown comparison table** showing the priority order of the 3 User Stories using **two different prioritization frameworks**:
+
+-   **RICE** (Reach, Impact, Confidence, Effort) --- numeric, product-led prioritization
+
+-   **MoSCoW** (Must / Should / Could / Won't) --- requirement-classification prioritization
+
+* * * * *
+
+🔽 **Prioritization Comparison Table**
+======================================
+
+| User Story | **RICE Priority Order** | **MoSCoW Priority Order** | Notes & Comparison |
+| --- | --- | --- | --- |
+| **1\. Job Publication Workflow** | **#1** --- Highest RICE score because it impacts all recruiters, required to start the hiring pipeline, and implementation cost is moderate. | **Must Have** --- Core ATS functionality; without it no jobs can be created or published. | Both methods rank this as the **highest priority**. RICE highlights broad reach; MoSCoW marks it essential. |
+| **2\. Candidate Intake & AI-Assisted Screening** | **#2** --- Very high impact and reach; effort is high, lowering RICE score slightly compared to Story #1. | **Should Have** --- Significant differentiation but not absolutely required for initial functional ATS operation. | RICE ranks this high but below Story #1 due to complexity. MoSCoW sees this as important but not blocking MVP. |
+| **3\. Interview Scheduling with Calendar Sync** | **#3** --- High effort + narrower reach (not all customers need scheduling automation). | **Could Have** --- Enhances experience but is not blocking hiring workflow; can be added post-MVP. | Both methods deprioritize this feature. RICE due to high effort; MoSCoW because it's optional early-stage. |
+
+* * * * *
+
+📌 Summary
+==========
+
+-   **Both frameworks agree on overall order:**\
+    **1 → Job Publication**\
+    **2 → Candidate Intake & AI Screening**\
+    **3 → Interview Scheduling**
+
+-   **RICE is more quantitative:** It ranks based on weighted value vs. effort.
+
+-   **MoSCoW is more categorical:** It separates foundational features from enhancements.
